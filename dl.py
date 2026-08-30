@@ -81,5 +81,5 @@ class FeatureLeakageAuditor:
         df = pd.DataFrame(results)
         suspicious = df[(df["lag"] < 0) & (df["corr"].abs() > 0.1)]
         if len(suspicious) > 0:
-            print(f"⚠ LEAKAGE DETECTED: {suspicious['feature'].unique().tolist()}")
+            print(f"LEAKAGE DETECTED: {suspicious['feature'].unique().tolist()}")
         return df.pivot(index="lag", columns="feature", values="corr")
