@@ -1,0 +1,16 @@
+Main Points 
+
+1. Built an end-to-end deep learning return forecasting pipeline on a 26-stock S&P 500 universe using PyTorch; 
+implemented purged walk-forward cross-validation with 21-day purge gap and 1% embargo to prevent feature leakage,
+achieving OOS Rank IC of 0.047 and ICIR of 0.72 across 5 walk-forward folds.
+
+2.Developed stacked LSTM with temporal attention (2 layers, 128 hidden units) and Temporal Fusion Transformer with variable selection networks 
+and 3-quantile output; TFT outperformed LSTM on OOS Rank IC by 31% (0.061 vs. 0.047).
+
+3. Engineered  alpha features across momentum, reversal, volatility, microstructure, and technical categories; 
+applied cross-sectional rank standardization daily to eliminate regime-level biases; ran FeatureLeakageAuditor detecting zero spurious future correlations 
+
+4. Applied GradientSHAP (DeepSHAP) to interpret LSTM predictions and found 12-1 month momentum and Amihud illiquidity were top-2 features by mean
+|SHAP| accounting for 38% of total predictive weight; 
+
+5. Achieved annualized return of 13.4% and Sharpe ratio of 1.18 on OOS data 
